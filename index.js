@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const birds = require('./birds_test.json');
+const birds = require('./birds.json');
 const fs = require('fs');
 const bodyParser = require('body-parser')
 
@@ -23,7 +23,7 @@ app.post('/set-birds', (req, res) => {
     const { birds } = req.body;
     const birdsJson = JSON.stringify(birds);
 
-    fs.writeFile('birds_test.json', birdsJson, 'utf8', () => {});
+    fs.writeFile('birds.json', birdsJson, 'utf8', () => {});
 
     res.json({
         message: 'Registro exitoso'
